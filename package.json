@@ -1,45 +1,44 @@
 {
-  "name": "rn-tourguide",
-  "version": "2.6.1",
-  "description": "Make an interactive step by step tour guide for your react-native app (a rewrite of react-native-copilot)",
-  "main": "node_modules/expo/AppEntry.js",
-  "types": "lib/index.d.ts",
-  "private": false,
-  "scripts": {
-    "start": "yarn config:dev && expo start -c",
-    "start:web": "yarn config:dev && expo start -c -w",
-    "test": "TZ=Europe/Paris jest --no-watchman",
-    "tsc": "node_modules/.bin/tsc --noEmit",
-    "tsc:watch": "node_modules/.bin/tsc --noEmit --watch",
-    "build": "rm -rf lib/ && node_modules/.bin/tsc",
-    "config:dev": "json -I -f package.json -e 'this.main=\"node_modules/expo/AppEntry.js\"'",
-    "config:npm": "json -I -f package.json -e 'this.main=\"lib/index.js\"'",
-    "lint": "tslint --project .",
-    "verify": "yarn test && yarn lint && yarn tsc && yarn build",
-    "prepublishOnly": "yarn verify && yarn config:npm",
-    "postpublish": "yarn config:dev",
-    "cleaning": "rm -rf node_modules && rm -f yarn.lock && yarn cache clean && yarn install && watchman watch-del-all && rm -fr $TMPDIR/react-*",
-    "deploy": "gh-pages -d web-build",
-    "predeploy": "yarn verify && expo build:web"
+  "_from": "https://github.com/wegory/rn-tourguide/tarball/master",
+  "_id": "rn-tourguide@2.6.1",
+  "_inBundle": false,
+  "_integrity": "sha512-YRgro5eKeM8BvjeHuNOshUHlzDneZrp+muVyz8KRkFykwh8i3B/6JSzfQlhgpeaKruzoEVTB/Gx5bCn4eQl4mA==",
+  "_location": "/rn-tourguide",
+  "_phantomChildren": {
+    "react-is": "16.13.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/xcarpentier/rn-tourguide.git"
+  "_requested": {
+    "type": "remote",
+    "raw": "https://github.com/wegory/rn-tourguide/tarball/master",
+    "rawSpec": "https://github.com/wegory/rn-tourguide/tarball/master",
+    "saveSpec": "https://github.com/wegory/rn-tourguide/tarball/master",
+    "fetchSpec": "https://github.com/wegory/rn-tourguide/tarball/master"
   },
-  "keywords": [
-    "react-native",
-    "react-native-joyride",
-    "react",
-    "copilot",
-    "intro.js",
-    "intro"
+  "_requiredBy": [
+    "#USER",
+    "/"
   ],
-  "author": "Xavier Carpentier <xcapetir@gmail.com>",
-  "license": "MIT",
+  "_resolved": "https://github.com/wegory/rn-tourguide/tarball/master",
+  "_shasum": "f74a1210ad3ebe416a98950ef1c045f59a298f6a",
+  "_spec": "https://github.com/wegory/rn-tourguide/tarball/master",
+  "_where": "/Users/greggy/Desktop/monk",
+  "author": {
+    "name": "Xavier Carpentier",
+    "email": "xcapetir@gmail.com"
+  },
   "bugs": {
     "url": "https://github.com/xcarpentier/rn-tourguide/issues"
   },
-  "homepage": "https://xcarpentier.github.io/rn-tourguide/",
+  "bundleDependencies": false,
+  "dependencies": {
+    "flubber": "~0.4.2",
+    "hoist-non-react-statics": "~3.0.1",
+    "lodash.clamp": "~4.0.3",
+    "memoize-one": "5.1.1",
+    "mitt": "~1.1.3"
+  },
+  "deprecated": false,
+  "description": "Make an interactive step by step tour guide for your react-native app (a rewrite of react-native-copilot)",
   "devDependencies": {
     "@types/hoist-non-react-statics": "3.3.1",
     "@types/jest": "25.2.3",
@@ -64,6 +63,7 @@
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.8.3"
   },
+  "homepage": "https://xcarpentier.github.io/rn-tourguide/",
   "jest": {
     "preset": "react-native",
     "transform": {
@@ -79,15 +79,43 @@
       "__TEST__": true
     }
   },
-  "dependencies": {
-    "flubber": "~0.4.2",
-    "hoist-non-react-statics": "~3.0.1",
-    "lodash.clamp": "~4.0.3",
-    "memoize-one": "5.1.1",
-    "mitt": "~1.1.3"
+  "keywords": [
+    "react-native",
+    "react-native-joyride",
+    "react",
+    "copilot",
+    "intro.js",
+    "intro"
+  ],
+  "license": "MIT",
+  "main": "src/index.ts",
+  "name": "rn-tourguide",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xcarpentier/rn-tourguide.git"
   },
   "resolutions": {
     "logkitty": "^0.7.1",
     "mem": "^4.0.0"
-  }
+  },
+  "scripts": {
+    "build": "rm -rf lib/ && node_modules/.bin/tsc",
+    "cleaning": "rm -rf node_modules && rm -f yarn.lock && yarn cache clean && yarn install && watchman watch-del-all && rm -fr $TMPDIR/react-*",
+    "config:dev": "json -I -f package.json -e 'this.main=\"src/index.ts\"'",
+    "config:npm": "json -I -f package.json -e 'this.main=\"src/index.ts\"'",
+    "deploy": "gh-pages -d web-build",
+    "lint": "tslint --project .",
+    "postpublish": "yarn config:dev",
+    "predeploy": "yarn verify && expo build:web",
+    "prepublishOnly": "yarn verify && yarn config:npm",
+    "start": "yarn config:dev && expo start -c",
+    "start:web": "yarn config:dev && expo start -c -w",
+    "test": "TZ=Europe/Paris jest --no-watchman",
+    "tsc": "tsc --noEmit",
+    "tsc:watch": "tsc --noEmit --watch",
+    "verify": "yarn test && yarn lint && yarn tsc && yarn build"
+  },
+  "types": "src/index.ts",
+  "version": "2.6.1"
 }
