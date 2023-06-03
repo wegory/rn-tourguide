@@ -35,6 +35,7 @@ interface State {
   animation: Animated.Value
   canvasSize: ValueXY
   previousPath: string
+  d: string
 }
 
 const FIRST_PATH = `M0,0H${windowDimensions.width}V${
@@ -70,6 +71,7 @@ export class SvgMask extends Component<Props, State> {
       opacity: new Animated.Value(0),
       animation: new Animated.Value(0),
       previousPath: FIRST_PATH,
+      d: ""
     }
 
     this.listenerID = this.state.animation.addListener(this.animationListener)
@@ -117,7 +119,7 @@ export class SvgMask extends Component<Props, State> {
       if (this.mask && this.mask.current) {
         if (IS_WEB) {
           // @ts-ignore
-          this.mask.current.setNativeProps({ d })
+          this.setState(state => ({...state, d}));
         } else {
           // @ts-ignore
           this.mask.current._touchableNode.setAttribute('d', d)
@@ -191,7 +193,7 @@ export class SvgMask extends Component<Props, State> {
             fill={this.props.backdropColor}
             strokeWidth={0}
             fillRule='evenodd'
-            d={FIRST_PATH}
+            d={this.state.d === "" ? FIRST_PATH : this.state.d}
             opacity={this.state.opacity as any}
           />
         </Svg>
